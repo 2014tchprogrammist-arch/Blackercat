@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- Убрал лишний пробел в атрибуте content -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="cats-hack-memes-studio.live">
+  <!-- Убрал лишний пробел перед URL и добавил кавычки -->
+  <link rel="icon" href="https://avatars.mds.yandex.net/i?id=c2f243abf4ad7170af0d048befbd2b104792f962-10918338-images-thumbs&ref=rim&n=33&w=250&h=250" type="image/x-icon">
+  <title>Кодекс правил использования страниц cats_memes_hack_games_studio.live</title>
+  <meta name="description" content="Правила использования страниц cats_memes_hack_games_studio.live" />
+  <style>
+    /* =====================
+       БАЗОВЫЕ ПЕРЕМЕННЫЕ
+       ===================== */
+    :root {
+      /* тема по умолчанию (dark) */
+      --bg: #0b0c10;
+      --card: #12141a;
+      --text: #e9eef5;
+      --muted: #9aa4b2;
+      --border: #242833;
+      --accent: #4cc9f0;
+      --accent-strong: #00a3ff;
+      --success: #38d39f;
+      --danger: #ff6b6b;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius: 16px;
+      /* Убрал второе определение --sidebar-w, оно избыточно */
+      --sidebar-w: clamp(220px, 23vw, 320px);
+      --sidebar-right-w: clamp(220px, 23vw, 320px);
+      --base-font: 16px; /* меняется в настройках */
+      --ff: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans"; /* вид шрифта */
+    }
+    /* светлая тема */
+    :root[data-theme="light"] {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #465167;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(12, 15, 20, .07);
+    }
+    /* высокая контрастность */
+    :root[data-contrast="high"] { --border:#7ad1ff; --accent:#9be1ff; --accent-strong:#00a3ff; }
+    /* подчёркивание ссылок */
+    :root[data-underline-links="on"] a { text-decoration: underline; }
+
+    /* Снижение анимаций по настройке (дополнительно к системной) */
+    :root[data-reduce-motion="on"] * { animation: none !important; transition: none !important; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { height: 100%; }
+    body {
+      height: 100%;
+      margin: 0;
+      background:
+        radial-gradient(1200px 800px at 10% 0%, rgba(76,201,240,.10), transparent 45%),
+        radial-gradient(1200px 800px at 90% 0%, rgba(0,163,255,.10), transparent 45%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--ff);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: var(--base-font);
+    }
+    a { color: var(--accent-strong); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 1480px; margin: 0 auto; padding: 24px; }
+
+    /* ====== HEADER ====== */
+    .header { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 18px; background: color-mix(in oklab, var(--card) 92%, transparent); border:1px solid var(--border); border-radius: calc(var(--radius) + 8px); box-shadow: var(--shadow); position: sticky; top: 12px; backdrop-filter: blur(6px); z-index: 5; }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand-logo { width:36px; height:36px; border-radius:10px; background: linear-gradient(135deg, var(--accent-strong), #7cf7ff); display:grid; place-items:center; color:#fff; font-weight:800; letter-spacing:.5px; box-shadow: var(--shadow); }
+    .brand-title { font-weight:800; font-size:1.05rem; }
+    .header-actions { display:flex; gap:10px; align-items:center; }
+    .btn { --btn-bg: var(--accent-strong); --btn-fg:#fff; padding:10px 14px; border-radius:12px; border:0; cursor:pointer; background:var(--btn-bg); color:var(--btn-fg); font-weight:700; box-shadow: var(--shadow); }
+    .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .status { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid var(--border); }
+    .dot { width:10px; height:10px; border-radius:999px; background:var(--danger); }
+    .dot.ok { background: var(--success); }
+
+    /* ====== HERO ====== */
+    .hero { margin-top:18px; border-radius: calc(var(--radius) + 10px); overflow:hidden; position:relative; box-shadow: var(--shadow); border:1px solid var(--border); }
+    .hero-media { aspect-ratio: 21 / 9; width:100%; height:auto; object-fit: cover; display:block; }
+    .hero-overlay { position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15) 40%, rgba(0,0,0,.55)); display:grid; align-content:end; padding: clamp(18px, 4vw, 32px); }
+    .hero h1 { margin:0 0 6px; font-size: clamp(1.6rem, 3.6vw, 2.4rem); }
+    .hero p { margin:0; color:#e6f3ff; opacity:.9; max-width: 70ch; }
+
+    /* ====== DISCLAIMER ====== */
+    .disclaimer { margin-top: 16px; padding: 10px 14px; border:1px solid var(--border); background: color-mix(in oklab, var(--card) 96%, transparent); border-radius: 12px; }
+
+    /* ====== LAYOUT ====== */
+    .layout { display:grid; grid-template-columns: var(--sidebar-w) 1fr var(--sidebar-right-w); gap:18px; margin-top:22px; align-items:start; }
+
+    .sidebar, .sidebar-right { position: sticky; top: 84px; align-self: start; }
+    .tabs { list-style:none; margin:0; padding:8px; background: var(--card); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .tabs [role="tab"] { width:100%; text-align:left; display:flex; gap:10px; align-items:center; border:1px solid var(--border); background: color-mix(in oklab, var(--card) 96%, transparent); color: var(--text); padding:10px 12px; border-radius: 12px; cursor:pointer; font-weight:600; margin: 6px 0; }
+    .tabs [role="tab"][aria-selected="true"] { outline: 2px solid color-mix(in oklab, var(--accent-strong) 60%, transparent); background: linear-gradient(135deg, color-mix(in oklab, var(--card) 90%, transparent), color-mix(in oklab, var(--card) 98%, transparent)); }
+    .tabs .num { width:28px; height:28px; border-radius:9px; display:grid; place-items:center; font-weight:800; background: linear-gradient(135deg, var(--accent), var(--accent-strong)); color:#041016; box-shadow: 0 6px 16px rgba(0,163,255,.35); font-size:.9rem; }
+
+    .content { background: var(--card); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: clamp(18px, 2.6vw, 26px); min-height: 420px; }
+    .muted { color: var(--muted); }
+
+    [role="tabpanel"] { display: none; }
+    [role="tabpanel"][data-active="true"] { display:block; }
+
+    .rules, .settings { list-style:none; padding:0; margin:16px 0 0; display:grid; gap:12px; }
+    .rules li, .settings li { padding:12px; border:1px dashed var(--border); border-radius:14px; background: color-mix(in oklab, var(--card) 96%, transparent); }
+
+    .notice { margin-top: 16px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: linear-gradient(0deg, rgba(56,211,159,.10), rgba(56,211,159,.10)) color-mix(in oklab, var(--card) 96%, transparent); }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; border:1px solid var(--border); border-bottom-width:2px; padding:2px 6px; border-radius:8px; background: color-mix(in oklab, var(--card) 94%, transparent); }
+
+    footer { margin: 28px 0 8px; color: var(--muted); text-align:center; }
+
+    /* ====== TOAST ====== */
+    .toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--card); color: var(--text); border:1px solid var(--border); padding: 10px 14px; border-radius: 12px; box-shadow: var(--shadow); display: none; max-width: 90vw; z-index: 1000; }
+    .toast[data-show="true"]{ display:block; }
+
+    /* ====== PRINT ====== */
+    @media print {
+      .header, .sidebar, .sidebar-right, .hero-overlay, #acceptHelp, .toast { display:none !important; }
+      .hero-media { aspect-ratio:auto; }
+      body { background:#fff; }
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <!-- Исправлено: стиль position:static; transform:none; left:auto; перенесено в сам элемент для корректного отображения -->
+    <div class="toast" data-show="true" style="position:static; transform:none; left:auto; margin: 0 auto; display:block;">Для полноценной работы этой страницы нужен JavaScript. Вкладки и сохранение настроек будут недоступны.</div>
+  </noscript>
+
+  <div class="container">
+    <header class="header" role="banner">
+      <div class="brand" aria-label="Бренд">
+        <div class="brand-logo" aria-hidden="true">PR</div>
+        <!-- Убрал лишний пробел в data-i18n -->
+        <div class="brand-title" data-i18n="appTitle">кодекс правил</div>
+      </div>
+      <div class="header-actions">
+        <button class="btn" id="printBtn" type="button" title="Распечатать или сохранить в PDF" data-i18n="print">Печать</button>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Обложка">
+      <!-- Исправлено: URL иконки должен быть картинкой, а не ссылкой на страницу. Заменил на placeholder -->
+      <img id="heroImg" class="hero-media" src="https://via.placeholder.com/1200x600/0a2540/ffffff?text=Rules+&+Code" alt="абстрактная геометрия" />
+      <div class="hero-overlay">
+        <h1 data-i18n="heroTitle">Добро пожаловать!</h1>
+        <p data-i18n="heroDesc">Ниже указан кодекс правил (* Справа находится панель настроек для удобства вашего чтения >:)  )</p>
+      </div>
+    </section>
+
+    <!-- Убрал hidden, добавил data-i18n -->
+    <div id="disclaimer" class="disclaimer" data-i18n="disclaimer"></div>
+
+    <div class="layout">
+      <!-- ===== LEFT: RULES TABS ===== -->
+      <aside class="sidebar" aria-label="Навигация по разделам правил">
+        <div role="tablist" aria-orientation="vertical" class="tabs" id="rulesTabs">
+          <button role="tab" id="tab-r-1" aria-controls="panel-r-1" aria-selected="true"><span class="num">1</span> <span data-i18n="tabRules1">Доступ</span></button>
+          <button role="tab" id="tab-r-2" aria-controls="panel-r-2" aria-selected="false"><span class="num">2</span> <span data-i18n="tabRules2">Поведение </span></button>
+          <button role="tab" id="tab-r-3" aria-controls="panel-r-3" aria-selected="false"><span class="num">3</span> <span data-i18n="tabRules3">Контент и источники</span></button>
+          <button role="tab" id="tab-r-4" aria-controls="panel-r-4" aria-selected="false"><span class="num">4</span> <span data-i18n="tabRules4">Реклама и спам</span></button>
+          <button role="tab" id="tab-r-5" aria-controls="panel-r-5" aria-selected="false"><span class="num">5</span> <span data-i18n="tabRules5">Куки</span></button>
+          <button role="tab" id="tab-r-6" aria-controls="panel-r-6" aria-selected="false"><span class="num">6</span> <span data-i18n="tabRules6">Авторские права</span></button>
+          <button role="tab" id="tab-r-7" aria-controls="panel-r-7" aria-selected="false"><span class="num">7</span> <span data-i18n="tabRules7">Безопасность</span></button>
+          <button role="tab" id="tab-r-8" aria-controls="panel-r-8" aria-selected="false"><span class="num">8</span> <span data-i18n="tabRules8">Язык</span></button>
+          <button role="tab" id="tab-r-9" aria-controls="panel-r-9" aria-selected="false"><span class="num">9</span> <span data-i18n="tabRules9">Оплата</span></button>
+          <button role="tab" id="tab-r-10" aria-controls="panel-r-10" aria-selected="false"><span class="num">10</span> <span data-i18n="tabRules10">Vpn</span></button>
+          <button role="tab" id="tab-r-11" aria-controls="panel-r-11" aria-selected="false"><span class="num">11</span> <span data-i18n="tabRules11">Обратная связь</span></button>
+        </div>
+      </aside>
+
+      <!-- ===== MAIN CONTENT (PANELS) ===== -->
+      <main class="content" role="main" id="mainContent">
+        <!-- Добавлено data-i18n -->
+        <div class="muted">Последнее обновление: <time datetime="2025-08-01">25 августа 2025</time></div>
+
+        <!-- RULE PANELS -->
+        <section role="tabpanel" id="panel-r-1" aria-labelledby="tab-r-1" data-active="true">
+          <h2 data-i18n="rulesH1">1. Доступ</h2>
+          <ul class="rules">
+            <!-- Добавлено data-i18n -->
+            <li data-i18n="rules1_1">1.1 Доступ к сайтам и операциям открыт только полностью проверенным пользователям</li>
+            <li data-i18n="rules1_2">1.2 Из-за временного отсутствия reCAPTCHA легальные клиенты могут также блокироваться</li>
+            <li data-i18n="rules1_3">1.3 При нарушении правил, попыткой обмануть систему и т.п. по возможности клиент блокируется, <br>
+              а администрация отказывается следить за безопасностью на сайтах и не несёт ответственности за аномалии на ПК</li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-r-2" aria-labelledby="tab-r-2">
+          <h2 data-i18n="rulesH2">2. Поведение</h2>
+          <ul class="rules">
+            <li data-i18n="rules2_1">2.1 Запрещены оскорбления, преследование и дискриминация.</li>
+            <li data-i18n="rules2_2">2.2 Запрещена матерная брань.</li>
+            <li data-i18n="rules2_3">2.3 Запрещены обмен файлами-ловушками и атаки на сайты</li>
+            <li data-i18n="rules2_4">2.4 Пользователь имеет право обратиться в службу с 12:00 до 20:00 (в выходные) и с <br>
+              15:00 до 16:30 (в рабочие дни) - подробнее рассмотреть можно в футере сайта. - наказание смотрите в статье 1.3 -</li>
+          </ul>
+        </section>
+        <!-- Остальные панели правил содержат статичный русский текст -->
+        <section role="tabpanel" id="panel-r-3" aria-labelledby="tab-r-3">
+          <h2 data-i18n="rulesH3">3. Контент и источники</h2>
+          <ul class="rules">
+            <li>3.1 Источников очень много и не все полностью защищены</li>
+            <li>3.2 Материалы 18+ должны относиться только к чисто хакерским интерфейсам</li>
+            <li>3.3 Дезинформация и опасные инструкции разрешены только после согласования с администрацией и только для этичного хакинга.</li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-r-4" aria-labelledby="tab-r-4">
+          <h2 data-i18n="rulesH4">4. Реклама и спам</h2>
+          <ul class="rules">
+            <li>4.1 Запрещён спам сайтов.</li>
+            <li>4.2 Реклама — только после согласования с администрацией.</li>
+            <li>4.3 Запрещена реклама 18+ [сервис Kaspersky и кодик имеет право размещать свою рекламу без согласования с администрацией с ограничениями:</li>
+            <li>вариант 1: (после оповещения об использовании администрации (БЕСПЛАТНО)) 2 баннера, срок 5 дней на размещение, длительность 7 дней</li>
+            <li>вариант 2: (после оповещения об использовании администрации с промокодом (промокод можно найти на сайтах издателя) (БЕСПЛАТНО)) <br>
+              ? баннеров (? = указано в промокоде), срок ? недель на размещение, длительность 1 месяц</li>
+            <li>вариант 3: (после оповещения об использовании администрации и сотрудничества минимум 1 год (БЕСПЛАТНО)) 45 баннеров, срок <br>
+              2.5 года на размещение, длительность 1 месяц.]
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-r-5" aria-labelledby="tab-r-5">
+          <h2 data-i18n="rulesH5">5. Куки и конфиденциальность</h2>
+          <ul class="rules">
+            <li>5.1 Не публикуйте персональные данные без явного согласия.</li>
+            <li>5.2 Печеньки (куки) нужны для улучшения работы сайта</li>
+            <li>5.3 Запрещены вредоносные ссылки (grey hack and black hack) и скрытый трекинг.</li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-r-6" aria-labelledby="tab-r-6">
+          <h2 data-i18n="rulesH6">6. Авторские права</h2>
+          <ul class="rules">
+            <li>6.1 Публикуйте материалы, на которые есть права/разрешения.</li>
+            <li>6.2 Обязательно указывайте источник и автора при заимствовании (по возможности).</li>
+            <li>6.3 По обоснованным жалобам контент удаляется.</li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-r-7" aria-labelledby="tab-r-7">
+          <h2 data-i18n="rulesH7">7. Безопасность</h2>
+          <ul class="rules">
+            <li>7.1 Сообщайте о багах через форму поддержки, не публикуйте эксплойты.</li>
+            <li>7.2 Рекомендуем включить 2FA в сервисах, где это возможно.</li>
+            <li>7.3 Проверяйте домены и ссылки перед кликом.</li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-r-8" aria-labelledby="tab-r-8">
+          <h2 data-i18n="rulesH8">8. Язык</h2>
+          <ul class="rules">
+            <li>8.1 Пожалуйста, пишите только на русском языке, иначе жалобы могут не обрабатываться.</li>
+            <li>8.2 ВОЛОНТЁРАМ ВОЗРАСТА (от 11 до 35 лет): Если вы знаете очень хорошо русский и английский, русский и китайский или русский и польский - вы можете добровольцем помочь нам в разработке :).</li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-r-9" aria-labelledby="tab-r-9">
+          <h2 data-i18n="rulesH9">9. Оплата</h2>
+          <ul class="rules">
+            <li>9.1 При покупке какого-либо товара убедитесь, что это легальный/полулегальный товар или товар сферы кибербезопасности.</li>
+            <li>9.2 При неудачной операции деньги или товар не подлежат возврату, обращайтесь в службу поддержки.</li>
+            <li>9.3 Будьте внимательны и бдительны!!! Не публикуйте опасные или нелегальные товары!!! Не покупайте подозрительные товары!!!</li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-r-10" aria-labelledby="tab-r-10">
+          <h2 data-i18n="rulesH10">10. VPN</h2>
+          <ul class="rules">
+            <li>10.1 Возможно, вы сейчас видите сломанную страницу. 1. Отключите VPN, 2. Откройте эту страницу в браузере Google Chrome, 3. Перезагрузите страницу.</li>
+            <li>10.2 Проделывайте то же самое со всеми нашими сайтами (кн.1 ст.10 отдел.2).</li>
+            <li>10.3 Несоблюдение инструкции на сайтах с оплатой - в частности, чревато неудачными исходами операций.</li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-r-11" aria-labelledby="tab-r-11">
+          <h2 data-i18n="rulesH11">11. Обратная связь</h2>
+          <ul class="rules">
+            <li>( По вопросам обращайтесь по номеру +79889342916.)</li>
+            <li>11.1 Кратко описывайте проблему и прикладывайте подтверждения.</li>
+            <li>11.2 Говорите на русском языке.</li>
+          </ul>
+        </section>
+        <!-- SETTINGS PANELS (5) -->
+        <section role="tabpanel" id="panel-s-1" aria-labelledby="tab-s-1">
+          <h2 data-i18n="settings_theme">Тема оформления</h2>
+          <ul class="settings">
+            <li>
+              <label><input type="radio" name="theme" value="auto"> <span data-i18n="theme_auto">Авто (системная)</span></label>
+            </li>
+            <li>
+              <label><input type="radio" name="theme" value="light"> <span data-i18n="theme_light">Светлая</span></label>
+            </li>
+            <li>
+              <label><input type="radio" name="theme" value="dark"> <span data-i18n="theme_dark">Тёмная</span></label>
+            </li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-s-2" aria-labelledby="tab-s-2">
+          <h2 data-i18n="settings_fontSize">Размер шрифта</h2>
+          <ul class="settings">
+            <li>
+              <label for="fsRange" data-i18n="fontSize_label">Базовый размер (14–20 px): </label>
+              <input id="fsRange" type="range" min="14" max="20" step="1" value="16" />
+              <output id="fsOut" for="fsRange">16px</output>
+            </li>
+            <li>
+              <label for="fontFaceSel" data-i18n="fontFace_label">Вид шрифта:</label>
+              <select id="fontFaceSel">
+                <!-- Добавлены соответствующие значения для data-i18n -->
+                <option value="system" selected data-i18n="fontFace_system">System UI</option>
+                <option value="serif" data-i18n="fontFace_serif">Serif</option>
+                <option value="mono" data-i18n="fontFace_mono">Monospace</option>
+                <option value="rounded" data-i18n="fontFace_rounded">Rounded</option>
+                <option value="condensed" data-i18n="fontFace_condensed">Condensed</option>
+              </select>
+            </li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-s-3" aria-labelledby="tab-s-3">
+          <h2 data-i18n="settings_links">Стили ссылок</h2>
+          <ul class="settings">
+            <li>
+              <label><input type="checkbox" id="underlineLinks"> <span data-i18n="links_underline">Подчёркивать ссылки</span></label>
+            </li>
+            <li class="muted" data-i18n="links_hint">Рекомендуется включать подчёркивание для лучшей доступности.</li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-s-4" aria-labelledby="tab-s-4">
+          <h2 data-i18n="settings_contrastMotion">Контраст и движение</h2>
+          <ul class="settings">
+            <li><label><input type="checkbox" id="highContrast"> <span data-i18n="contrast_high">Высокая контрастность</span></label></li>
+            <li><label><input type="checkbox" id="reduceMotion"> <span data-i18n="motion_reduce">Уменьшить анимации</span></label></li>
+          </ul>
+        </section>
+        <section role="tabpanel" id="panel-s-5" aria-labelledby="tab-s-5">
+          <h2 data-i18n="settings_language">Язык интерфейса</h2>
+          <ul class="settings">
+            <li>
+              <label for="langSel" data-i18n="lang_label">Язык:</label>
+              <select id="langSel">
+                <option value="ru" data-i18n="lang_ru">Русский</option>
+                <option value="en" data-i18n="lang_en">English</option>
+                <option value="de" data-i18n="lang_de">Deutsch</option>
+              </select>
+            </li>
+            <li class="muted" data-i18n="lang_hint">Переключает основные элементы интерфейса.</li>
+          </ul>
+        </section>
+
+        <div class="notice" role="note" data-i18n="notice">
+          Подсказка: Навигация по вкладкам — стрелками ^/v, Home/End, Enter/Space.
+        </div>
+      </main>
+
+      <!-- ===== RIGHT: SETTINGS TABS ===== -->
+      <aside class="sidebar-right" aria-label="Навигация по настройкам">
+        <div role="tablist" aria-orientation="vertical" class="tabs" id="settingsTabs">
+          <button role="tab" id="tab-s-1" aria-controls="panel-s-1" aria-selected="true"><span class="num">A</span> <span data-i18n="tabSet1">Тема</span></button>
+          <button role="tab" id="tab-s-2" aria-controls="panel-s-2" aria-selected="false"><span class="num">B</span> <span data-i18n="tabSet2">Шрифт</span></button>
+          <button role="tab" id="tab-s-3" aria-controls="panel-s-3" aria-selected="false"><span class="num">C</span> <span data-i18n="tabSet3">Ссылки</span></button>
+          <button role="tab" id="tab-s-4" aria-controls="panel-s-4" aria-selected="false"><span class="num">D</span> <span data-i18n="tabSet4">Контраст/Движение</span></button>
+          <button role="tab" id="tab-s-5" aria-controls="panel-s-5" aria-selected="false"><span class="num">E</span> <span data-i18n="tabSet5">Язык</span></button>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> • <span data-i18n="contacts">Контакты</span>: по основным вопросам обращайтесь к автоответчику (с 12:00 до 15:00 по выходным и по школьным каникулам кроме воскресных дней) +79889342916, через <a href="#">сайт с формой</a> или через <a href="#">телеграмм</a>
+    </footer>
+  </div>
+
+  <!-- TOAST for messages -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function(){
+      'use strict';
+      /* =====================
+         ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+         ===================== */
+      const $ = (sel, root=document) => root.querySelector(sel);
+      const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+      // Безопасное localStorage (может быть недоступен в приватных режимах)
+      const safeStorage = (() => {
+        try { const ls = window.localStorage; const k='__test__'; ls.setItem(k, '1'); ls.removeItem(k); return ls; } catch (e) { return null; }
+      })();
+      const save = (k, v) => { try { if (safeStorage) safeStorage.setItem(k, JSON.stringify(v)); } catch(e) { /* ignore */ } };
+      const load = (k, d) => { try { if (!safeStorage) return d; const v = safeStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } };
+
+      const toastEl = $('#toast');
+      const showToast = (msg, ms=2200) => {
+        try {
+          if (!toastEl) return;
+          toastEl.textContent = String(msg || 'Готово');
+          toastEl.dataset.show = 'true';
+          window.clearTimeout(showToast._t);
+          showToast._t = window.setTimeout(() => { delete toastEl.dataset.show; }, ms);
+        } catch (e) { /* ignore UI errors */ }
+      };
+
+      /* =====================
+         ИНИЦИАЛИЗАЦИЯ ГОДА И ПЕЧАТИ
+         ===================== */
+      const yearEl = $('#year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+      const printBtn = $('#printBtn'); if (printBtn) printBtn.addEventListener('click', () => window.print());
+
+      /* =====================
+         ГЛОБАЛЬНАЯ ЗАЩИТА ОТ ОШИБОК
+         ===================== */
+      window.addEventListener('error', (ev) => { console.error('Global error:', ev.message); showToast('Произошла ошибка в скрипте'); });
+      window.addEventListener('unhandledrejection', (ev) => { console.error('Unhandled promise rejection:', ev.reason); showToast('Необработанное исключение'); });
+
+      /* =====================
+         ОБЛОЖКА: ФОЛБЭК КАРТИНКИ
+         ===================== */
+      const heroImg = $('#heroImg');
+      if (heroImg) {
+        heroImg.addEventListener('error', () => {
+          try {
+            heroImg.style.display = 'none';
+            const bg = document.createElement('div');
+            bg.style.aspectRatio = '21 / 9';
+            bg.style.width = '100%';
+            bg.style.background = 'linear-gradient(135deg,#1f2937,#0ea5e9)';
+            heroImg.parentElement.prepend(bg);
+            showToast('Картинка не загрузилась — показан фон');
+          } catch(e){ /* ignore */ }
+        }, { once: true });
+      }
+
+      /* =====================
+         ТАБЫ (левая/правая панели)
+         ===================== */
+      function setupTabs(tablistId, storageKey) {
+        const tablist = document.getElementById(tablistId);
+        if (!tablist) return;
+        const tabs = $$("[role=tab]", tablist);
+        if (!tabs.length) return;
+        const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls'))).filter(Boolean);
+
+        function setActive(index, pushHash=true) {
+          try {
+            index = Math.max(0, Math.min(index, tabs.length - 1));
+            tabs.forEach((t, i) => {
+              const sel = i === index;
+              t.setAttribute('aria-selected', String(sel));
+              if (panels[i]) {
+                if (sel) { panels[i].dataset.active = 'true'; panels[i].style.display = 'block'; }
+                else { delete panels[i].dataset.active; panels[i].style.display = 'none'; }
+              }
+            });
+            save(storageKey, index);
+            if (pushHash && panels[index]) { const id = panels[index].id; history.replaceState(null, '', '#' + id); }
+          } catch(e) { console.error('setActive error', e); }
+        }
+
+        let idx = load(storageKey, 0);
+        const hash = location.hash.replace('#','');
+        const fromHash = panels.findIndex(p => p.id === hash);
+        if (fromHash >= 0) idx = fromHash;
+        setActive(idx, false);
+
+        tabs.forEach((tab, i) => {
+          tab.addEventListener('click', () => setActive(i));
+          tab.addEventListener('keydown', (e) => {
+            const prev = () => setActive((i - 1 + tabs.length) % tabs.length);
+            const next = () => setActive((i + 1) % tabs.length);
+            switch (e.key) {
+              case 'ArrowUp': e.preventDefault(); prev(); break;
+              case 'ArrowDown': e.preventDefault(); next(); break;
+              case 'Home': e.preventDefault(); setActive(0); break;
+              case 'End': e.preventDefault(); setActive(tabs.length - 1); break;
+              case 'Enter':
+              case ' ': e.preventDefault(); setActive(i); break;
+            }
+          });
+        });
+
+        window.addEventListener('hashchange', () => {
+          const id = location.hash.replace('#','');
+          const i = panels.findIndex(p => p.id === id);
+          if (i >= 0) setActive(i, false);
+        });
+      }
+
+      setupTabs('rulesTabs', 'rulesTabIndex');
+      setupTabs('settingsTabs', 'settingsTabIndex');
+
+      /* =====================
+         НАСТРОЙКИ СТРАНИЦЫ
+         ===================== */
+      const PREF_KEY = 'site_prefs_v2';
+      const defaultPrefs = { theme:'auto', baseFont:16, fontFace:'system', underlineLinks:false, highContrast:false, reduceMotion:false, lang:'ru' };
+      const prefs = Object.assign({}, defaultPrefs, load(PREF_KEY, {}));
+
+      // Вспомогательная функция для перевода
+      function getDict(lang) {
+        return dict[lang] || dict.ru;
+      }
+
+      // Словари i18n (минимально необходимые элементы)
+      const dict = {
+        ru: {
+          appTitle: 'Кодекс правил', print:'Печать', heroTitle:'Добро пожаловать!', heroDesc:'Ниже указан кодекс правил (* Справа находится панель настроек для удобства вашего чтения >:)  ).',
+          rulesH1: '1. Доступ', rulesH2: '2. Поведение', rulesH3: '3. Контент и источники', rulesH4: '4. Реклама и спам', rulesH5: '5. Куки и конфиденциальность', rulesH6: '6. Авторские права', rulesH7: '7. Безопасность', rulesH8: '8. Язык', rulesH9: '9. Оплата', rulesH10: '10. VPN', rulesH11: '11. Обратная связь',
+          rules1_1: '1.1 Доступ к сайтам и операциям открыт только полностью проверенным пользователям',
+          rules1_2: '1.2 Из-за временного отсутствия reCAPTCHA легальные клиенты могут также блокироваться',
+          rules1_3: '1.3 При нарушении правил, попыткой обмануть систему и т.п. по возможности клиент блокируется,<br>а администрация отказывается следить за безопасностью на сайтах и не несёт ответственности за аномалии на ПК',
+          rules2_1: '2.1 Запрещены оскорбления, преследование и дискриминация.',
+          rules2_2: '2.2 Запрещена матерная брань.',
+          rules2_3: '2.3 Запрещены обмен файлами-ловушками и атаки на сайты',
+          rules2_4: '2.4 Пользователь имеет право обратиться в службу с 12:00 до 20:00 (в выходные) и с<br>15:00 до 16:30 (в рабочие дни) - подробнее рассмотреть можно в футере сайта. - наказание смотрите в статье 1.3 -',
+          tabRules1:'Доступ', tabRules2:'Поведение', tabRules3:'Контент и источники', tabRules4:'Реклама и спам', tabRules5:'Куки', tabRules6:'Авторские права', tabRules7:'Безопасность', tabRules8:'Язык', tabRules9:'Оплата', tabRules10:'Vpn', tabRules11:'Обратная связь',
+          settings_theme:'Тема оформления', theme_auto:'Авто (системная)', theme_light:'Светлая', theme_dark:'Тёмная',
+          settings_fontSize:'Размер шрифта', fontSize_label:'Базовый размер (14–20 px): ', fontFace_label:'Вид шрифта:',
+          fontFace_system: 'System UI', fontFace_serif: 'Serif', fontFace_mono: 'Monospace', fontFace_rounded: 'Rounded', fontFace_condensed: 'Condensed',
+          settings_links:'Стили ссылок', links_underline:'Подчёркивать ссылки', links_hint:'Рекомендуется включать подчёркивание для лучшей доступности.',
+          settings_contrastMotion:'Контраст и движение', contrast_high:'Высокая контрастность', motion_reduce:'Уменьшить анимации',
+          settings_language:'Язык интерфейса', lang_label:'Язык:', lang_hint:'Переключает основные элементы интерфейса.',
+          lang_ru: 'Русский', lang_en: 'English', lang_de: 'Deutsch',
+          notice:'Подсказка: Навигация по вкладкам — стрелками ^/v, Home/End, Enter/Space.',
+          tabSet1:'Тема', tabSet2:'Шрифт', tabSet3:'Ссылки', tabSet4:'Контраст/Движение', tabSet5:'Язык', contacts:'Контакты',
+          disclaimer:'— перевод не доработан, основная часть текста всё ещё на русском'
+        },
+        en: {
+          appTitle:'The Code of Rules', print:'Print', heroTitle:'Welcome!', heroDesc:'Below is the code of rules (* On the right is the settings panel for your reading convenience >:) ).',
+          rulesH1: '1. Access', rulesH2: '2. Behavior', rulesH3: '3. Content & Sources', rulesH4: '4. Ads & Spam', rulesH5: '5. Cookies & Privacy', rulesH6: '6. Copyright', rulesH7: '7. Security', rulesH8: '8. Language', rulesH9: '9. Payment', rulesH10: '10. VPN', rulesH11: '11. Feedback',
+          rules1_1: '1.1 Access to sites and operations is open only to fully verified users',
+          rules1_2: '1.2 Due to the temporary absence of reCAPTCHA, legitimate clients may also be blocked',
+          rules1_3: '1.3 For rule violations, attempts to deceive the system, etc., the client will be blocked if possible,<br>and the administration refuses to monitor site security and is not responsible for anomalies on the PC',
+          rules2_1: '2.1 Insults, harassment, and discrimination are prohibited.',
+          rules2_2: '2.2 Swear words are prohibited.',
+          rules2_3: '2.3 Exchange of trap files and attacks on sites are prohibited',
+          rules2_4: '2.4 The user has the right to contact the service from 12:00 to 20:00 (weekends) and from<br>15:00 to 16:30 (weekdays) - more details can be found in the site footer. - see article 1.3 for penalties -',
+          tabRules1:'Access', tabRules2:'Behavior', tabRules3:'Content & Sources', tabRules4:'Ads & Spam', tabRules5:'Cookies', tabRules6:'Copyright', tabRules7:'Security', tabRules8:'Language', tabRules9:'Payment', tabRules10:'VPN', tabRules11:'Feedback',
+          settings_theme:'Theme', theme_auto:'Auto (system)', theme_light:'Light', theme_dark:'Dark',
+          settings_fontSize:'Font size', fontSize_label:'Base size (14–20 px): ', fontFace_label:'Font family:',
+          fontFace_system: 'System UI', fontFace_serif: 'Serif', fontFace_mono: 'Monospace', fontFace_rounded: 'Rounded', fontFace_condensed: 'Condensed',
+          settings_links:'Link styles', links_underline:'Underline links', links_hint:'Recommended for better accessibility.',
+          settings_contrastMotion:'Contrast & motion', contrast_high:'High contrast', motion_reduce:'Reduce motion',
+          settings_language:'Interface language', lang_label:'Language:', lang_hint:'Switches key UI elements.',
+          lang_ru: 'Russian', lang_en: 'English', lang_de: 'Deutsch',
+          notice:'Tip: Navigate tabs using ^/v, Home/End, Enter/Space keys.',
+          tabSet1:'Theme', tabSet2:'Font', tabSet3:'Links', tabSet4:'Contrast/Motion', tabSet5:'Language', contacts:'Contacts',
+          disclaimer:'— translation incomplete, most text is still in Russian'
+        },
+        de: {
+          appTitle:'-----', print:'-----', heroTitle:'-----', heroDesc:'-----',
+          rulesH1: '1. Zugriff', rulesH2: '2. Verhalten', rulesH3: '3. Inhalt & Quellen', rulesH4: '4. Werbung & Spam', rulesH5: '5. Cookies & Datenschutz', rulesH6: '6. Urheberrecht', rulesH7: '7. Sicherheit', rulesH8: '8. Sprache', rulesH9: '9. Zahlung', rulesH10: '10. VPN', rulesH11: '11. Feedback',
+          rules1_1: '1.1 Der Zugriff auf Websites und Operationen ist nur für vollständig verifizierte Benutzer gestattet',
+          rules1_2: '1.2 Aufgrund der vorübergehenden Abwesenheit von reCAPTCHA können legitime Clients ebenfalls blockiert werden',
+          rules1_3: '1.3 Bei Regelverstößen, Versuchen, das System zu täuschen usw. wird der Client nach Möglichkeit blockiert,<br>und die Administration weigert sich, die Sicherheit der Websites zu überwachen und ist nicht verantwortlich für Anomalien auf dem PC',
+          rules2_1: '2.1 Beleidigungen, Belästigungen und Diskriminierung sind verboten.',
+          rules2_2: '2.2 Schimpfwörter sind verboten.',
+          rules2_3: '2.3 Der Austausch von Fallen-Dateien und Angriffe auf Websites sind verboten',
+          rules2_4: '2.4 Der Benutzer hat das Recht, den Dienst von 12:00 bis 20:00 (Wochenenden) und von<br>15:00 bis 16:30 (Wochentage) zu kontaktieren - weitere Details finden Sie im Footer der Website. - siehe Artikel 1.3 für Strafen -',
+          tabRules1:'Zugriff', tabRules2:'Verhalten', tabRules3:'Inhalt & Quellen', tabRules4:'Werbung & Spam', tabRules5:'Cookies', tabRules6:'Urheberrecht', tabRules7:'Sicherheit', tabRules8:'Sprache', tabRules9:'Zahlung', tabRules10:'VPN', tabRules11:'Feedback',
+          settings_theme:'Thema', theme_auto:'Automatisch (System)', theme_light:'Hell', theme_dark:'Dunkel',
+          settings_fontSize:'Schriftgröße', fontSize_label:'Basisgröße (14–20 px): ', fontFace_label:'Schriftart:',
+          fontFace_system: 'System UI', fontFace_serif: 'Serif', fontFace_mono: 'Monospace', fontFace_rounded: 'Rounded', fontFace_condensed: 'Condensed',
+          settings_links:'Link-Stile', links_underline:'Links unterstreichen', links_hint:'Empfohlen für bessere Zugänglichkeit.',
+          settings_contrastMotion:'Kontrast & Bewegung', contrast_high:'Hoher Kontrast', motion_reduce:'Bewegung reduzieren',
+          settings_language:'Oberflächensprache', lang_label:'Sprache:', lang_hint:'Schaltet wichtige UI-Elemente um.',
+          lang_ru: 'Russisch', lang_en: 'English', lang_de: 'Deutsch',
+          notice:'Tipp: Navigieren Sie mit den Tasten ^/v, Home/End, Enter/Space durch die Registerkarten.',
+          tabSet1:'Thema', tabSet2:'Schriftart', tabSet3:'Links', tabSet4:'Kontrast/Bewegung', tabSet5:'Sprache', contacts:'Kontakte',
+          disclaimer:'— Übersetzung unvollständig, der Großteil des Textes ist noch auf Russisch'
+        }
+      };
+
+      function applyTranslations(lang) {
+        const d = getDict(lang);
+        $$('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (d[key]) {
+            // Проверяем, является ли элемент инпутом или селектом, чтобы не менять их value
+            if (el.tagName === 'INPUT' || el.tagName === 'SELECT') {
+              // Для селектов, возможно, потребуется переводить опции отдельно
+            } else {
+              el.textContent = d[key];
+            }
+          }
+        });
+
+        // Плашка-дисклеймер: видна для всех языков кроме русского
+        const disclaimer = $('#disclaimer');
+        if (disclaimer) {
+          if (lang === 'ru') {
+            disclaimer.hidden = true;
+            disclaimer.textContent = '';
+          } else {
+            disclaimer.hidden = false;
+            disclaimer.textContent = d.disclaimer || getDict('en').disclaimer; // Fallback to English
+          }
+        }
+        // Установим атрибут lang на <html>
+        try { document.documentElement.setAttribute('lang', lang); } catch(e){}
+      }
+
+      function computeFontStack(key){
+        switch (key) {
+          case 'serif':
+            return 'ui-serif, Georgia, "Times New Roman", Times, serif';
+          case 'mono':
+            return 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace';
+          case 'rounded':
+            return '"SF Pro Rounded", "Segoe UI Rounded", "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif';
+          case 'condensed':
+            return '"Arial Narrow", "Liberation Sans Narrow", "Helvetica Condensed", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif';
+          case 'system':
+          default:
+            return 'system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", sans-serif';
+        }
+      }
+
+      function applyPrefs(p) {
+        try {
+          // тема
+          const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = p.theme === 'auto' ? (prefersDark ? 'dark' : 'light') : p.theme;
+          document.documentElement.setAttribute('data-theme', theme);
+          // размер шрифта
+          document.documentElement.style.setProperty('--base-font', (Number(p.baseFont)||16) + 'px');
+          // вид шрифта
+          document.documentElement.style.setProperty('--ff', computeFontStack(p.fontFace));
+          // подчёркивание ссылок
+          document.documentElement.setAttribute('data-underline-links', p.underlineLinks ? 'on' : 'off');
+          // контраст
+          document.documentElement.setAttribute('data-contrast', p.highContrast ? 'high' : 'normal');
+          // движение
+          document.documentElement.setAttribute('data-reduce-motion', p.reduceMotion ? 'on' : 'off');
+          // язык
+          applyTranslations(p.lang);
+        } catch(e) { console.error('applyPrefs error', e); }
+      }
+
+      function bindPrefsUI() {
+        try {
+          // Theme radios
+          $$('input[name="theme"]').forEach(r => {
+            r.checked = (r.value === prefs.theme);
+            r.addEventListener('change', () => { prefs.theme = r.value; save(PREF_KEY, prefs); applyPrefs(prefs); showToast(getDict(prefs.lang).theme_updated || 'Theme updated'); });
+          });
+          // Font size
+          const fsRange = $('#fsRange'); const fsOut = $('#fsOut');
+          if (fsRange && fsOut) {
+            // Установил min и max для range в соответствии с defaultPrefs
+            fsRange.min = '14';
+            fsRange.max = '20';
+            fsRange.value = String(prefs.baseFont);
+            fsOut.textContent = prefs.baseFont + 'px';
+            fsRange.addEventListener('input', () => { fsOut.textContent = fsRange.value + 'px'; });
+            fsRange.addEventListener('change', () => { prefs.baseFont = Number(fsRange.value)||16; save(PREF_KEY, prefs); applyPrefs(prefs); showToast('OK'); });
+          }
+          // Font face
+          const faceSel = $('#fontFaceSel');
+          if (faceSel) {
+            faceSel.value = prefs.fontFace || 'system';
+            faceSel.addEventListener('change', () => { prefs.fontFace = faceSel.value; save(PREF_KEY, prefs); applyPrefs(prefs); showToast('Шрифт применён'); });
+            // Обновляем текст опций шрифтов через data-i18n
+            $$('option', faceSel).forEach(opt => {
+              const key = opt.getAttribute('data-i18n');
+              if (key && getDict(prefs.lang)[key]) {
+                opt.textContent = getDict(prefs.lang)[key];
+              }
+            });
+          }
+          // Underline links
+          const ul = $('#underlineLinks');
+          if (ul) { ul.checked = !!prefs.underlineLinks; ul.addEventListener('change', () => { prefs.underlineLinks = ul.checked; save(PREF_KEY, prefs); applyPrefs(prefs); }); }
+          // High contrast
+          const hc = $('#highContrast');
+          if (hc) { hc.checked = !!prefs.highContrast; hc.addEventListener('change', () => { prefs.highContrast = hc.checked; save(PREF_KEY, prefs); applyPrefs(prefs); }); }
+          // Reduce motion
+          const rm = $('#reduceMotion');
+          if (rm) { rm.checked = !!prefs.reduceMotion; rm.addEventListener('change', () => { prefs.reduceMotion = rm.checked; save(PREF_KEY, prefs); applyPrefs(prefs); }); }
+          // Language
+          const langSel = $('#langSel');
+          if (langSel) {
+            langSel.value = prefs.lang || 'ru';
+            langSel.addEventListener('change', () => { prefs.lang = langSel.value; save(PREF_KEY, prefs); applyPrefs(prefs); showToast('Language set'); });
+            // Обновляем текст опций языков через data-i18n
+            $$('option', langSel).forEach(opt => {
+              const key = opt.getAttribute('data-i18n');
+              if (key && getDict(prefs.lang)[key]) {
+                opt.textContent = getDict(prefs.lang)[key];
+              }
+            });
+          }
+        } catch(e) { console.error('bindPrefsUI error', e); }
+      }
+
+      // ПЕРЕВОД СТАРТОВЫЙ
+      applyTranslations(prefs.lang);
+      // ПРИМЕНИТЬ НАСТРОЙКИ
+      applyPrefs(prefs);
+      // ПРИВЯЗАТЬ UI
+      bindPrefsUI();
+
+      /* =====================
+         ДОПОЛНИТЕЛЬНО: Уведомление при смене хэша (пример)
+         ===================== */
+      window.addEventListener('hashchange', () => { /* можно показать тост, если нужно */ });
+    })();
+  </script>
+</body>
+</html>
